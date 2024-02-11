@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  pulsopus_postgres:
+    image: postgres:alpine
+    container_name: 'pulsopus_postgres'
+    env_file: .env
+    restart: always
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_DB=pulsopus_db'
+    ports:
+      - '5432:5432'
+  pulsopus_api:
+    build: ./
+    container_name: 'pulsopus_api'
+    env_file: .env
+    restart: always
+    links:
+      - "pulsopus_postgres:postgres"
+    ports:
+      - "8080:8080"

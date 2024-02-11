@@ -1,0 +1,15 @@
+### register full
+POST http://localhost:{{port}}/{{prefix}}/auth/register
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "email": "admin@mail.com",
+  "password": "admin"
+}
+
+### register empty
+POST http://localhost:{{port}}/{{prefix}}/auth/register
+Content-Type: application/json
+
+{}
