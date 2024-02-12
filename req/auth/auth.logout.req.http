@@ -1,3 +1,0 @@
-### logout
-GET http://localhost:{{port}}/{{prefix}}/auth/logout
-Authorization: Bearer {{token}}

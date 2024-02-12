@@ -6,6 +6,7 @@ import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagg
 import { JwtAccessGuard } from "./guard/jwt-access.guard";
 import { JwtRefreshGuard } from "./guard/jwt-refresh.guard";
 import { IJwtPayload } from "../../interfaces";
+import { defaultGitIgnore } from "@nestjs/cli/lib/configuration/defaults";
 
 @ApiTags("auth")
 @Controller("auth")
@@ -29,6 +30,17 @@ export class AuthController {
   @ApiResponse({ status: HttpStatus.OK, description: "login", type: AuthResponseDto })
   public async signUp(@Body() body: AuthRequestDto): Promise<AuthResponseDto> {
     return this.authService.signIn(body);
+  }
+
+  @ApiBearerAuth()
+  @UseGuards(JwtAccessGuard)
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: "Get me" })
+  @ApiResponse({ status: HttpStatus.OK, description: "get me by token", type: AuthResponseDto })
+  @Get("current")
+  public async getMe(@Req() req): Promise<AuthResponseDto> {
+    const { user = {} as IJwtPayload } = req;
+    return this.authService.getMe(user.id);
   }
 
   @ApiBearerAuth()

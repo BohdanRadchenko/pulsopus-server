@@ -1,3 +1,0 @@
-### refresh full
-GET http://localhost:{{port}}/{{prefix}}/auth/refresh
-Authorization: Bearer {{refreshToken}}
