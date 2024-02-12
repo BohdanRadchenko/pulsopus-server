@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.8'
 services:
   pulsopus_postgres:
     image: postgres:alpine
@@ -18,4 +18,4 @@ services:
     links:
       - "pulsopus_postgres:postgres"
     ports:
-      - "8080:8080"
+      - "80:8080"
