@@ -6,7 +6,9 @@ import { HttpExceptionFilter } from "./filters/http-exception.filter";
 import { AppValidationPipe } from "./pipes/app-validation.pipe";
 import { IConfig } from "./interfaces";
 
-//TODO: create facade (filter?) controller -> service -> dto -> response
+// TODO: create facade (filter?) controller -> service -> dto -> response
+// TODO: refactor config.get all project
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const cfg: ConfigService<IConfig> = app.get(ConfigService);

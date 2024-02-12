@@ -1,9 +1,9 @@
 export default () => ({
   port: parseInt(process.env.PORT, 10) || 8080,
   version: process.env.npm_package_version || '0.0.0',
-  prefix: process.env.API_PREFIX || 'api',
+  prefix: process.env.API_PREFIX,
   database: {
-    host: process.env.DB_HOST || 'postgres',
+    host: process.env.DB_HOST,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,

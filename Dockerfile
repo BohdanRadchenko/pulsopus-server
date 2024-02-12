@@ -5,5 +5,5 @@ RUN npm install
 ADD . .
 RUN npm run build
 RUN npm prune --production
-CMD ["node", "./dist/main.js"]
+CMD ["NODE_ENV=production", "node", "./dist/main.js"]
 

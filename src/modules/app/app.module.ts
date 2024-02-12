@@ -11,7 +11,7 @@ import { AppController } from "./app.controller";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ".env",
+      envFilePath: `.env.${process.env.NODE_ENV}`,
       isGlobal: true,
       load: [config]
     }),
