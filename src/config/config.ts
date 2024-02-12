@@ -3,7 +3,7 @@ export default () => ({
   version: process.env.npm_package_version || '0.0.0',
   prefix: process.env.API_PREFIX || 'api',
   database: {
-    host: process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'postgres',
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,

@@ -3,7 +3,6 @@ services:
   pulsopus_postgres:
     image: postgres:alpine
     container_name: 'pulsopus_postgres'
-    env_file: .env
     restart: always
     environment:
       - 'POSTGRES_USER=postgres'
