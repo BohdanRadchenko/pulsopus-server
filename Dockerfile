@@ -1,9 +1,9 @@
 FROM node:20-alpine
-WORKDIR /opt/app
+WORKDIR /app
 ADD package.json package.json
 RUN npm install
 ADD . .
 RUN npm run build
 RUN npm prune --production
-CMD ["NODE_ENV=production", "node", "./dist/main.js"]
+CMD ["node", "./dist/main.js"]
 

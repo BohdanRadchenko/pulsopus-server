@@ -13,7 +13,7 @@ services:
   pulsopus_api:
     build: .
     container_name: 'pulsopus_api'
-    env_file: .env
+    env_file: .env.production
     restart: always
     links:
       - "pulsopus_postgres:postgres"
