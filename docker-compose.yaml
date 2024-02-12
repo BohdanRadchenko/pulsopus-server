@@ -12,7 +12,7 @@ services:
     ports:
       - '5432:5432'
   pulsopus_api:
-    build: ./
+    build: .
     container_name: 'pulsopus_api'
     env_file: .env
     restart: always

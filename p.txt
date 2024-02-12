@@ -1,2 +1,13 @@
 ssh root@209.38.240.21
 F!#c3xLFvS^+sv8q
+
+cd ~/snap/lxd/current
+
+server: cd ~/snap/lxd/current/pulsopus-server
+
+docker stop pulsopus_api
+docker stop pulsopus_postgres
+docker system prune
+docker system prune -a
+
+docker-compose up -d --build
