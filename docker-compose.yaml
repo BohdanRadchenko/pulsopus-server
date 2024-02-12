@@ -4,6 +4,7 @@ services:
     image: postgres:alpine
     container_name: 'pulsopus_postgres'
     restart: always
+    env_file: .env.production
     environment:
       - 'POSTGRES_USER=postgres'
       - 'POSTGRES_PASSWORD=postgres'
