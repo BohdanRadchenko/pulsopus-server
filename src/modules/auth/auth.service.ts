@@ -80,10 +80,8 @@ export class AuthService {
   }
 
   public async getMe(userId: User["id"]) {
-    console.log('userId', userId);
     this.logger.log(`Get me ID: ${userId}`, AuthService.name);
     const user = await this.usersService.getById(userId);
-    console.log('user', user);
     return this.login(user);
   }
 
