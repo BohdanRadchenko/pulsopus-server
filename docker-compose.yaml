@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   pulsopus_postgres:
-    image: postgres:alpine
+    image: postgres:latest
     container_name: 'pulsopus_postgres'
     restart: always
     env_file: .env.production
@@ -11,7 +11,8 @@ services:
       POSTGRES_DB: 'pulsopus_db'
       PGDATA: "/var/lib/postgresql/data"
     volumes:
-      - pgdata:/var/lib/postgresql/data/:rw
+      - ./pg_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     ports:
       - '5432:5432'
   pulsopus_api:
