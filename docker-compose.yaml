@@ -12,7 +12,6 @@ services:
       PGDATA: "/var/lib/postgresql/data"
     volumes:
       - ./pg_data:/var/lib/postgresql/data
-      - pgdata:/var/lib/postgresql/data
     ports:
       - '5432:5432'
   pulsopus_api:
@@ -20,6 +19,8 @@ services:
     container_name: 'pulsopus_api'
     env_file: .env.production
     restart: always
+    depends_on:
+      - pulsopus_postgres
     links:
       - "pulsopus_postgres:postgres"
     ports:
