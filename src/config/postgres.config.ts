@@ -18,8 +18,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       password: db.password,
       database: db.name,
       synchronize: true,
-      retryAttempts: 10,
-      retryDelay: 3000,
+      retryAttempts: 60,
+      retryDelay: 5000,
       autoLoadEntities: true,
       entities: [User],
     }

@@ -18,7 +18,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
 			message,
 		};
 
-		console.error(`[${resBody.path}] | ${resBody.statusCode} |`, resBody)
+		console.error(`[ERROR] ${resBody.path} | ${resBody.statusCode} |`, resBody)
 		if (!!exceptionResponse && !!exceptionResponse.errors) {
 			resBody['errors'] = exceptionResponse.errors;
 		}
