@@ -1,5 +1,15 @@
+### register full host
+POST http://167.99.248.5:{{port}}/{{prefix}}/auth/register
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "email": "admin@plusopus.com",
+  "password": "admin"
+}
+
 ### register full
-POST http://localhost:{{port}}/{{prefix}}/auth/register
+#POST http://localhost:{{port}}/{{prefix}}/auth/register
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
