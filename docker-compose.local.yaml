@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  pulsopus_postgres:
+    image: postgres:latest
+    container_name: 'pulsopus_postgres'
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'pulsopus_db'
+      PGDATA: "/var/lib/postgresql/data"
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+#      - ./init-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - '5432:5432'
+  pulsopus_pgadmin:
+    container_name: pulsopus_pgadmin
+    image: dpage/pgadmin4:7
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    depends_on:
+      - pulsopus_postgres
+    ports:
+      - '5050:80'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+  pulsopus_api:
+    build: .
+    container_name: 'pulsopus_api'
+    env_file: .env.production
+    restart: always
+    depends_on:
+      - pulsopus_postgres
+    links:
+      - 'pulsopus_postgres:postgres'
+    ports:
+      - '8080:8080'
+
+volumes:
+  pgdata:
+  pgadmin-data:
+
+networks:
+  postgres:
+    driver: bridge
