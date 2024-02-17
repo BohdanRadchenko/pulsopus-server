@@ -1,7 +1,8 @@
 server {
-    listen 80;
-    listen [::]:80;
-    server_name             localhost;
+    listen                  443 ssl;
+    listen                  [::]:443 ssl;
+    ssl_certificate         /root/ssl/cert.pem;
+    ssl_certificate_key     /root/ssl/key.pem;
 
     location / {
         proxy_pass "http://pulsopus_api:8080/";
