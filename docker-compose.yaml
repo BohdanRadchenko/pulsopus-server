@@ -7,13 +7,28 @@ services:
     restart: always
     ports:
       - '8080:8080'
-  pulsopus_nginx:
+  pulsopus_nginx_ssl:
     image: nginx:stable-alpine
+    container_name: 'pulsopus_nginx'
+    restart: always
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.443.conf:/etc/nginx/conf.d/default.conf
       - ./key.pem:/root/ssl/key.pem
       - ./cert.pem:/root/ssl/cert.pem
     ports:
       - "443:443"
+    depends_on:
+      - pulsopus_api
+
+  pulsopus_nginx:
+    image: nginx:stable-alpine
+    container_name: 'pulsopus_nginx'
+    restart: always
+    volumes:
+      - ./nginx.80.conf:/etc/nginx/conf.d/default.conf
+      - ./key.pem:/root/ssl/key.pem
+      - ./cert.pem:/root/ssl/cert.pem
+    ports:
+      - "80:80"
     depends_on:
       - pulsopus_api
