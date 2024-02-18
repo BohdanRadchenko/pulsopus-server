@@ -4,9 +4,7 @@ install:
 	&& sudo service docker restart
 
 rm:
-	docker-compose stop \
-	&& docker-compose rm \
-	&& rm -rf pgdata/
+	rm -rf pgdata/
 
 up:
 	#docker-compose -f docker-compose.yml up --force-recreate

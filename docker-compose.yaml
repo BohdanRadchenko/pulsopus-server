@@ -1,33 +1,34 @@
 version: '3.8'
 services:
   pulsopus_postgres:
-    image: postgres:latest
+    image: postgres:16.2-alpine
     container_name: 'pulsopus_postgres'
     restart: always
     environment:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
       POSTGRES_DB: 'pulsopus_db'
-      PGDATA: "/var/lib/postgresql/data"
+#      PGDATA: "/var/lib/postgresql/data"
+      PGDATA: /pgdata
     volumes:
       - ./pgdata:/var/lib/postgresql/data:rw
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./sql/001.sql:/docker-entrypoint-initdb.d/001.sql
     ports:
       - '5432:5432'
 
-  pulsopus_pgadmin:
-    container_name: pulsopus_pgadmin
-    image: dpage/pgadmin4:7
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    depends_on:
-      - pulsopus_postgres
-    ports:
-      - '5050:80'
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
+#  pulsopus_pgadmin:
+#    container_name: pulsopus_pgadmin
+#    image: dpage/pgadmin4:7
+#    restart: always
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+#      PGADMIN_DEFAULT_PASSWORD: root
+#    depends_on:
+#      - pulsopus_postgres
+#    ports:
+#      - '5050:80'
+#    volumes:
+#      - pgadmin-data:/var/lib/pgadmin
 
   pulsopus_api:
     build: .
