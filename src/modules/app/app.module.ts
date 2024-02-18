@@ -7,6 +7,8 @@ import { AuthModule } from "../auth/auth.module";
 import { LoggerModule } from "../logger/logger.module";
 import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
+import { EmployeesModule } from "../employees/employees.module";
+import { DepartmentModule } from "../department/department.module";
 
 @Module({
   imports: [
@@ -20,8 +22,10 @@ import { AppController } from "./app.controller";
       inject: [ConfigService],
       useClass: TypeOrmConfigService
     }),
+    LoggerModule,
     AuthModule,
-    LoggerModule
+    DepartmentModule,
+    EmployeesModule
   ],
   controllers: [AppController],
   providers: [AppService]

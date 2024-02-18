@@ -4,17 +4,17 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "email": "admin@plusopus.com",
+  "username": "admin@plusopus.com",
   "password": "admin"
 }
 
 ### register full
-#POST http://localhost:{{port}}/{{prefix}}/auth/register
+POST http://localhost:{{port}}/{{prefix}}/auth/register
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "email": "admin@mail.com",
+  "username": "admin@mail.com",
   "password": "admin"
 }
 
@@ -29,7 +29,7 @@ POST http://localhost:{{port}}/{{prefix}}/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin@mail.com",
+  "username": "admin@mail.com",
   "password": "admin"
 }
 

@@ -8,7 +8,6 @@ import { JwtRefreshStrategy } from "./strategy/jwt-refresh.strategy";
 import { JwtModule } from "@nestjs/jwt";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { User } from "../../entities";
-import { UsersService } from "../users/users.service";
 
 @Module({
   imports: [
@@ -17,7 +16,7 @@ import { UsersService } from "../users/users.service";
     PassportModule,
     LoggerModule
   ],
-  providers: [AuthService, JwtAccessStrategy, JwtRefreshStrategy, UsersService],
+  providers: [AuthService, JwtAccessStrategy, JwtRefreshStrategy],
   controllers: [AuthController]
 })
 export class AuthModule {

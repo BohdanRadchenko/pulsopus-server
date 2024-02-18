@@ -1,7 +1,8 @@
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from "@nestjs/typeorm";
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { User } from "../entities";
+import { User, Employee, Department } from "../entities";
+import { Role } from "../entities/role.entity";
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
@@ -21,7 +22,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       retryAttempts: 5,
       retryDelay: 5000,
       autoLoadEntities: true,
-      entities: [User],
+      entities: [User, Employee, Department, Role],
     }
   }
 }

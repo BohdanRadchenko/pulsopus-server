@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, Request, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, UseGuards } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { AuthRequestDto } from "./dto/auth.request.dto";
 import { AuthResponseDto } from "./dto/auth.response.dto";
@@ -6,7 +6,6 @@ import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagg
 import { JwtAccessGuard } from "./guard/jwt-access.guard";
 import { JwtRefreshGuard } from "./guard/jwt-refresh.guard";
 import { IJwtPayload } from "../../interfaces";
-import { defaultGitIgnore } from "@nestjs/cli/lib/configuration/defaults";
 
 @ApiTags("auth")
 @Controller("auth")

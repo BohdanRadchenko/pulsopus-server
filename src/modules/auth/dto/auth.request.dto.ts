@@ -3,7 +3,7 @@ import { AUTH_PASSWORD_MAX_LENGTH, AUTH_PASSWORD_MIN_LENGTH } from "../../../con
 
 export class AuthRequestDto {
   @IsEmail()
-  email: string;
+  username: string;
 
   @IsString()
   @IsNotEmpty()

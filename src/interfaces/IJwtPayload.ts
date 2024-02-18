@@ -1,5 +1,5 @@
 import { User } from '../entities';
 
-export interface IJwtPayload extends Pick<User, 'id' | 'email'> {
+export interface IJwtPayload extends Pick<User, 'id' | 'username'> {
   refreshToken?: string;
 }

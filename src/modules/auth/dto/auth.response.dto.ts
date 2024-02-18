@@ -1,14 +1,14 @@
-import { User } from '../../../entities';
-import UserAuthResponseDto from "../../users/dto/user-auth.response.dto";
+import { User } from "../../../entities";
+import AuthUserResponseDto from "./auth-user.response.dto";
 
 export class AuthResponseDto {
-	accessToken: string;
-	refreshToken: string;
-	user: UserAuthResponseDto;
+  accessToken: string;
+  refreshToken: string;
+  user: AuthUserResponseDto;
 
-	constructor(accessToken: string, refreshToken: string, user: User) {
-		this.accessToken = accessToken;
-		this.refreshToken = refreshToken;
-		this.user = UserAuthResponseDto.of(user);
-	}
+  constructor(accessToken: string, refreshToken: string, user: User) {
+    this.accessToken = accessToken;
+    this.refreshToken = refreshToken;
+    this.user = AuthUserResponseDto.of(user);
+  }
 }
