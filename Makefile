@@ -19,5 +19,7 @@ stop:
 	docker stop pulsopus_api \
     && docker stop pulsopus_postgres \
     && docker stop pulsopus_pgadmin \
-    && docker system prune \
-    && docker system prune -a
+
+prune:
+	docker system prune \
+	&& docker system prune -a
