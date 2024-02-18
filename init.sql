@@ -15,7 +15,5 @@ create table if not exists users
 
 alter table users owner to postgres;
 
-
-
 INSERT INTO users (email, password_hash) VALUES
 ('admin@pulsopus.com', '$2b$10$Rhrr5qEkCDcPmr4TKHpJjusLMXj1Ric9q2Qrri7wRezLTfH31zZ');
