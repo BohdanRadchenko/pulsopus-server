@@ -11,8 +11,8 @@ services:
 #      PGDATA: "/var/lib/postgresql/data"
       PGDATA: /pgdata
     volumes:
+      - ./init-script:/docker-entrypoint-initdb.d
       - ./pgdata:/var/lib/postgresql/data:rw
-      - ./sql/001.sql:/docker-entrypoint-initdb.d/001.sql
     ports:
       - '5432:5432'
 

@@ -1,6 +1,6 @@
 {
   "name": "pulsopus-server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "pulsopus api",
   "author": "Bohdan Radchenko <radchenkobs@gmail.com>",
   "private": true,
