@@ -1,6 +1,3 @@
-connect:
-	ssh root@167.99.248.5
-
 install:
 	sudo apt install docker-compose \
 	&& sudo usermod -aG docker $$USER \
@@ -23,3 +20,11 @@ stop:
 prune:
 	docker system prune \
 	&& docker system prune -a
+
+end:
+	make stop \
+	&& make prune \
+
+restart:
+	make end \
+	&& make up
